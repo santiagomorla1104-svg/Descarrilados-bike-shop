@@ -98,11 +98,11 @@ const products = [
     },
     {
         id: 13,
-        name: 'Manubrio Lunje 780mm con diseño',
-        price: 80,
-        category: 'MTB',
-        description: 'Manubrio de aluminio de 780mm para MTB, ergonómico y resistente',
-        image: 'images/products/lunje-diseño.svg'
+        name: 'Cámara Maxxis 29',
+        price: 20,
+        category: 'componentes',
+        description: 'Cámara para rueda de 29 pulgadas',
+        image: 'images/products/cámara-maxxis.svg'
     },
 ];
 
