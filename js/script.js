@@ -3,7 +3,7 @@ const products = [
     {
         id: 1,
         name: 'Bicicleta Jafi Challenger 29',
-        price: 1200,
+        price: 2000,
         category: 'mtb',
         description: 'Bicicleta de montana 1x12 con frenos hidráulicos',
         image: 'images/products/jafi-29.svg'
@@ -27,7 +27,7 @@ const products = [
     {
         id: 4,
         name: 'Asiento antiprostático Rockbros',
-        price: 150,
+        price: 35,
         category: 'componentes',
         description: 'Asiento antiprostático para bicicleta',
         image: 'images/products/asiento-rockbros.svg'
@@ -35,7 +35,7 @@ const products = [
     {
         id: 5,
         name: 'Suspensión Tanke 120mm',
-        price: 800,
+        price: 450,
         category: 'componentes',
         description: 'Suspensión delantera de 120mm para MTB, ajustable y ligera',
         image: 'images/products/suspension-tanke.svg'
@@ -43,7 +43,7 @@ const products = [
     {
         id: 6,
         name: 'Tornillos tornasolados para potencia',
-        price: 65,
+        price: 30,
         category: 'componentes',
         description: 'Tornillos para potencia de bicicleta',
         image: 'images/products/ztto-tornillos.svg'
@@ -51,7 +51,7 @@ const products = [
     {
         id: 7,
         name: 'Extractor de eje sellado',
-        price: 1800,
+        price: 40,
         category: 'Herramientas',
         description: 'Extractor de eje sellado para bicicletas de montaña',
         image: 'images/products/extractorsellado.svg'
@@ -59,7 +59,7 @@ const products = [
     {
         id: 8,
         name: 'Potencia Tornasolada Lunje',
-        price: 180,
+        price: 80,
         category: 'MTB',
         description: 'Potencia tornasolada de aluminio para MTB',
         image: 'images/products/potenciatornasol.svg'
