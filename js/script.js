@@ -19,7 +19,7 @@ const products = [
     {
         id: 3,
         name: 'Llanta Chaoyang MTB 29x2.2',
-        price: 100,
+        price: 135,
         category: 'componentes',
         description: 'Llanta resistente para tubeless',
         image: 'images/products/llanta-tubeless.svg'
@@ -63,7 +63,23 @@ const products = [
         category: 'MTB',
         description: 'Potencia tornasolada de aluminio para MTB',
         image: 'images/products/potenciatornasol.svg'
-    }
+    },
+    {
+        id: 9,
+        name: 'Manubrio Lunje 780mm',
+        price: 55,
+        category: 'MTB',
+        description: 'Manubrio de aluminio de 780mm para MTB, ergonómico y resistente',
+        image: 'images/products/lunje-manubrio.svg'
+    },
+    {
+        id: 10,
+        name: 'Manubrio Lunje 780mm con diseño',
+        price: 80,
+        category: 'MTB',
+        description: 'Manubrio de aluminio de 780mm para MTB, ergonómico y resistente',
+        image: 'images/products/lunje-diseño.svg'
+    },
 ];
 
 let cart = [];
