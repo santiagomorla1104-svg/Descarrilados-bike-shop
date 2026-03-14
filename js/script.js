@@ -85,6 +85,7 @@ const products = [
 let cart = [];
 let currentFilter = 'todos';
 let currentQuery = '';
+let currentSort = 'default';
 const whatsappPhone = '51906414352';
 
 // Elementos del DOM
@@ -190,15 +191,31 @@ function setupEventListeners() {
 }
 
 function getFilteredProducts() {
-    return products.filter(product => {
-        const categoryMatch = currentFilter === 'todos' || product.category === currentFilter;
+
+    let filtered = products.filter(product => {
+
+        const categoryMatch =
+            currentFilter === 'todos' || product.category === currentFilter;
+
         const queryMatch =
             !currentQuery ||
             product.name.toLowerCase().includes(currentQuery) ||
             product.description.toLowerCase().includes(currentQuery);
 
         return categoryMatch && queryMatch;
+
     });
+
+    if (currentSort === "asc") {
+        filtered.sort((a, b) => a.price - b.price);
+    }
+
+    if (currentSort === "desc") {
+        filtered.sort((a, b) => b.price - a.price);
+    }
+
+    return filtered;
+
 }
 
 function renderProducts() {
@@ -436,38 +453,89 @@ const previewImg = document.getElementById("previewImg");
 const previewName = document.getElementById("previewName");
 const previewPrice = document.getElementById("previewPrice");
 const previewDescription = document.getElementById("previewDescription");
+
+const previewAddCart = document.getElementById("previewAddCart");
+const previewWhatsapp = document.getElementById("previewWhatsapp");
 const closePreview = document.getElementById("closePreview");
 
+let currentPreviewProduct = null;
+
 if (productsGrid) {
+
     productsGrid.addEventListener("click", (event) => {
 
         const card = event.target.closest(".product-card");
 
         if (!card) return;
 
-        // evitar abrir preview si se hace click en botones
         if (event.target.closest(".btn-add-cart") || event.target.closest(".btn-whatsapp")) {
             return;
         }
 
-        const img = card.querySelector("img").src;
         const name = card.querySelector(".product-name").innerText;
-        const price = card.querySelector(".product-price").innerText;
-        const desc = card.querySelector(".product-description").innerText;
 
-        previewImg.src = img;
-        previewName.innerText = name;
-        previewPrice.innerText = price;
-        previewDescription.innerText = desc;
+        const product = products.find(p => p.name === name);
+
+        if (!product) return;
+
+        currentPreviewProduct = product;
+
+        previewImg.src = product.image;
+        previewName.innerText = product.name;
+        previewPrice.innerText = "S/ " + product.price.toFixed(2);
+        previewDescription.innerText = product.description;
+
+        previewWhatsapp.href =
+        `https://wa.me/${whatsappPhone}?text=${encodeURIComponent(
+            `Hola, me interesa este producto:\n\n${product.name}\nPrecio: S/ ${product.price}`
+        )}`;
 
         preview.classList.add("active");
+
     });
+
 }
 
 if (closePreview) {
+
     closePreview.onclick = () => {
         preview.classList.remove("active");
     };
+
+}
+
+if (previewAddCart) {
+
+    previewAddCart.onclick = () => {
+
+        if (!currentPreviewProduct) return;
+
+        addToCart(currentPreviewProduct.id);
+
+    };
+
+}
+
+/* cerrar tocando fuera */
+
+preview.addEventListener("click", (e) => {
+
+    if (e.target === preview) {
+
+        preview.classList.remove("active");
+
+    }
+
+});
+
+function sortByPrice() {
+
+    const sortSelect = document.getElementById("priceSort");
+
+    currentSort = sortSelect.value;
+
+    renderProducts();
+
 }
 
 document.addEventListener('DOMContentLoaded', init);

@@ -13,7 +13,7 @@
 <body>
 
 <!-- PREVIEW PRODUCTO -->
-<div class="product-preview hidden" id="productPreview">
+<div class="product-preview" id="productPreview">
 
     <div class="preview-box">
 
@@ -23,9 +23,23 @@
 
         <h2 id="previewName"></h2>
 
-        <p id="previewPrice"></p>
+        <p class="preview-price" id="previewPrice"></p>
 
-        <p id="previewDescription"></p>
+        <p class="preview-description" id="previewDescription"></p>
+
+        <div class="preview-actions">
+
+            <button id="previewAddCart" class="btn-add-cart-preview">
+                🛒 Agregar al carrito
+            </button>
+
+            <a id="previewWhatsapp"
+               class="btn-whatsapp-preview"
+               target="_blank">
+                🟢 Comprar por WhatsApp
+            </a>
+
+        </div>
 
     </div>
 
@@ -93,6 +107,20 @@
                 <main class="shop-content">
                     <h2 class="section-title">Catálogo de Productos</h2>
                     
+                    
+<!-- ORDENAR POR PRECIO -->
+    <div class="price-filter">
+
+<h3>Ordenar por precio</h3>
+
+<select id="priceSort" onchange="sortByPrice()">
+    <option value="default">Sin ordenar</option>
+    <option value="asc">Precio: menor a mayor</option>
+    <option value="desc">Precio: mayor a menor</option>
+</select>
+
+</div>
+
                     <div class="products-grid" id="productsGrid">
                         <!-- Los productos se cargarán aquí -->
                     </div>
