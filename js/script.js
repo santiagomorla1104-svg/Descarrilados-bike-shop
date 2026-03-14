@@ -12,7 +12,7 @@ const products = [
         id: 2,
         name: 'Bielas Jafi Hollowtech 34T',
         price: 200,
-        category: 'ruta',
+        category: 'componentes',
         description: 'Bielas de montaña ultraligera y resistente',
         image: 'images/products/bielas_jafi.svg'
     },
@@ -286,10 +286,10 @@ function renderProducts() {
 
 function getWhatsappLink(product) {
     const message = encodeURIComponent(
-        `Hola, me interesa el siguiente producto:%0A%0A*${product.name}*%0APrecio: S/ ${product.price.toFixed(2)}`
+        `Hola, me interesa el siguiente producto: ${product.name} Precio: S/ ${product.price.toFixed(2)}`
     );
 
-    return `https://web.whatsapp.com/send?phone=${whatsappPhone}&text=${message}`;
+    return `https://wa.me/${whatsappPhone}?text=${message}`;
 }
 
 function addToCart(productId) {
